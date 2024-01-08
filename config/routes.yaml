@@ -1,3 +1,8 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+list_musiques:
+    path: '/musiques'
+    controller: 'App\Controller\MusiqueController::listMusiques'
+    methods: ['GET']

@@ -145,4 +145,5 @@ class Musique
 
         return $this;
     }
+
 }
