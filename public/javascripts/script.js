@@ -29,7 +29,7 @@ function createComponent(data, type) {
             <div class="music-title text-2xl font-bold text-white">${element.nom || element.titre}</div>`;
         
         if (type === "musiques" || type === "alba") {
-            
+
             innerHTML += `<div class="music-artist text-base text-gray-600">By ${element.artiste}</div>`;
         } else if (type === "artistes") {
             innerHTML += `<div class="music-artist text-base text-gray-600">${element.genre}</div>`;
@@ -53,3 +53,45 @@ async function loadAndDisplay(type) {
     await loadAndDisplay('alba');
     await loadAndDisplay('artistes');
 })();
+
+
+async function openPopup() {
+    const div = document.getElementById('popup_playlist');
+    div.classList.remove('hidden');
+}
+
+function closePopup() {
+    const div = document.getElementById('popup_playlist');
+    div.classList.add('hidden');
+}
+
+async function createPlaylist() {
+    const playlistName = document.getElementById('playlist_name').value;
+
+    console.log(playlistName)
+    
+    if (playlistName === '') {
+        alert('Veuillez entrer un nom pour la playlist.');
+        return;
+    }
+
+    const playlistData = {
+        name: playlistName,
+        songs: []
+    };
+
+    const response = await fetch('http://localhost:8000/api/playlists', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/ld+json'
+        },
+        body: JSON.stringify(playlistData)
+    });
+
+    if (response.ok) {
+        alert('Playlist créée avec succès.');
+        closePopup();
+    } else {
+        alert('Erreur lors de la création de la playlist.');
+    }
+}

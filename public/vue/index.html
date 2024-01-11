@@ -14,6 +14,19 @@
 </head>
 
 <body class="h-full w-full">
+    <div id="popup_playlist" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden z-20">
+        <div class="bg-black p-8 rounded-lg">
+            <h2 class="text-purple-400 text-2xl font-semibold mb-4">Créer une nouvelle playlist</h2>
+            <div class="mb-4">
+                <label for="playlist_name" class="block text-white text-sm font-medium mb-1">Nom de la playlist</label>
+                <input type="text" id="playlist_name" class="border border-gray-300 rounded-lg py-2 px-3 w-full">
+            </div>
+            <div class="flex flex-row justify-between w-full gap-20">
+                <button onclick="closePopup()" class="bg-purple-400 text-white hover:bg-white hover:text-purple-600 rounded-lg w-20 px-4 py-2 text-sm">Annuler</button>
+                <button onclick="createPlaylist()" class="bg-white text-purple-600 hover:bg-purple-600 hover:text-white rounded-lg w-20 px-4 py-2 text-sm">Créer</button>
+            </div>
+        </div>
+    </div>
     <section class="h-full w-full">
         <div class="grid grid-rows-3 grid-cols-6 h-full" style="background-color: #121212;">
             <nav class="col-span-1 row-span-3 bg-black pt-6">
@@ -57,13 +70,12 @@
                         Playlists
                     </h3>
                     <div class="mb-3">
-                        <div class="px-6 py-1 flex items-center text-sm text-white opacity-50 hover:opacity-100">
-                            <svg class="bg-purple-400 fill-current h-8 mr-4 p-1 text-black w-8"
-                                shape-rendering="crispEdges" viewbox="0 0 36 36">
+                        <button onclick="openPopup()" class="px-6 py-1 flex items-center text-sm text-white opacity-50 hover:opacity-100">
+                            <svg class="bg-purple-400 fill-current h-8 mr-4 p-1 text-black w-8" shape-rendering="crispEdges" viewBox="0 0 36 36">
                                 <path d="m28 20h-8v8h-4v-8h-8v-4h8v-8h4v8h8v4z"></path>
                             </svg>
                             Create Playlist
-                        </div>
+                        </button>
                         <div class="px-6 py-1 flex items-center text-sm text-white opacity-50 hover:opacity-100">
                             <svg class="bg-liked-songs fill-current h-8 mr-4 p-2 w-8" viewbox="0 0 20 20">
                                 <path
