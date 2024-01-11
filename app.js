@@ -15,15 +15,19 @@ app.use(require('cookie-parser')(), express.urlencoded({ extended: true }), expr
 app.use(require('express-session')({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));
 
 // Regroupement des routes HTML
-['/index'].forEach(route => {
+['/index', '/login', '/signup'].forEach(route => {
+  if (route === '/login' || route === '/signup') {
     app.get(route, (req, res) => res.sendFile(join(__dirname, `./public/vue/${route.slice(1)}.html`)));
+  } else {
+    app.get(route, (req, res) => res.sendFile(join(__dirname, `./public/vue/${route.slice(1)}.html`)));
+  }
 });
 
 // Regroupement des routes JS, Style, Image
 const routeMappings = {
   'javascripts': ['/script', 'js'],
-//   'stylesheets': ['/styles', 'css'],
-//   'images': ['/favicon', 'png'],
+  'stylesheets': ['/style', 'css'],
+  'images': ['/logo', 'png'],
 };
 for (const key in routeMappings) {
   const routes = routeMappings[key];
@@ -33,6 +37,10 @@ for (const key in routeMappings) {
     }
   });
 }
+
+//connexion
+app.use('/login', cacheControl, require('./post/connexion/login.js'));
+app.use('/signup', cacheControl, require('./post/connexion/signup.js'));
 
 // Configuration du port et démarrage du serveur
 const port = process.env.PORT || 3000;
