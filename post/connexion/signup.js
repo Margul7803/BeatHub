@@ -31,25 +31,21 @@ router.post('/signup_gestion', [
         return res.redirect('/signup?error=true');
     }
     try {
-        const hashedPassword = await bcrypt.hash(password, 10); // Hash du mot de passe
         const userData = {
             email,
-            password: hashedPassword,
+            password,
             pseudo,
             nom,
             prenom,
             tel,
-            roles: ["user"],
-            isVerified: true,
         };
         const apiResponse = await fetch('http://localhost:8000/api/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/ld+json' },
             body: JSON.stringify(userData),
         });
-
-        console.log(apiResponse)
         if (apiResponse.ok) {
+            res.cookie('user', email)
             return res.redirect('/index');
         } else {
             return res.redirect('/signup?error=true');

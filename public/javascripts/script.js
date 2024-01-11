@@ -29,6 +29,7 @@ function createComponent(data, type) {
             <div class="music-title text-2xl font-bold text-white">${element.nom || element.titre}</div>`;
         
         if (type === "musiques" || type === "alba") {
+            
             innerHTML += `<div class="music-artist text-base text-gray-600">By ${element.artiste}</div>`;
         } else if (type === "artistes") {
             innerHTML += `<div class="music-artist text-base text-gray-600">${element.genre}</div>`;
