@@ -50,9 +50,9 @@ router.post('/signup_gestion', [
             body: JSON.stringify(userData),
         });
         if (apiResponse.ok) {
-            return res.status(200).json({ message: 'Utilisateur créé' });
+            return res.redirect('/index');
         } else {
-            return res.status(apiResponse.status).json({ error: 'Erreur lors de la création de l’utilisateur' });
+            return res.redirect('/signup?error=true');
         }
     } catch (error) {
         console.error(error);

@@ -45,7 +45,8 @@
                                                 required type="password"
                                                 class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
                                         </div>
-                                        <div id="error" class="text-red-500"></div>
+                                        <!-- Error Message -->
+                                        <div id="error-message" class="text-red-500"></div>
                                         <!--Submit button-->
                                         <div class="mb-5 pb-1 pt-1 text-center">
                                             <button
@@ -86,6 +87,18 @@
         </div>
     </section>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Obtenir le paramètre "error" de l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        // Sélectionner l'élément du message d'erreur
+        let errorMessage = document.getElementById('error-message');
+
+        // Si "error" est présent et égal à "true", afficher le message d'erreur
+        if (error === 'true') {
+            errorMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect";
+        }
+    </script>
 </body>
 
 </html>

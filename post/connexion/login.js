@@ -16,7 +16,7 @@ router.post('/login_gestion', [
     const email = req.body.email;
     const password = req.body.password;
     try {
-        user = checkUserExists(email)
+        const user = checkUserExists(email)
         if (user && await bcrypt.compare(password, user.password)) {
             return res.redirect('/index')
         } else {

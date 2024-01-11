@@ -25,47 +25,66 @@
                                 <div class="md:mx-6 md:p-12">
                                     <!--Logo-->
                                     <div class="text-center">
-                                        <img class="mx-auto w-48" src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" alt="logo" />
+                                        <img class="mx-auto w-48"
+                                            src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                                            alt="logo" />
                                     </div>
                                     <form action="/signup/signup_gestion" method="post">
                                         <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
                                         <!-- Email input -->
                                         <div class="relative mb-4" data-te-input-wrapper-init>
                                             <label for="inputEmail" class="text-neutral-200">Email</label>
-                                            <input name="email" id="inputEmail" autocomplete="current-Email" required type="email" class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
+                                            <input name="email" id="inputEmail" autocomplete="current-Email" required
+                                                type="email"
+                                                class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
                                         </div>
 
                                         <!-- Password input -->
                                         <div class="relative mb-4" data-te-input-wrapper-init>
                                             <label for="inputPassword" class="text-neutral-200">Password</label>
-                                            <input name="password" id="inputPassword" autocomplete="current-password" required type="password" class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
+                                            <input name="password" id="inputPassword" autocomplete="current-password"
+                                                required type="password"
+                                                class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
                                         </div>
 
                                         <!-- ConfirmPassword input -->
                                         <div class="relative mb-4" data-te-input-wrapper-init>
-                                            <label for="inputConfirmPassword" class="text-neutral-200">Confirm Password</label>
-                                            <input name="confirm_password" id="inputConfirmPassword" autocomplete="current-confirm_password" required type="password" class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
+                                            <label for="inputConfirmPassword" class="text-neutral-200">Confirm
+                                                Password</label>
+                                            <input name="confirm_password" id="inputConfirmPassword"
+                                                autocomplete="current-confirm_password" required type="password"
+                                                class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
                                         </div>
 
                                         <!-- Info complementaire -->
-                                        <div class="relative mb-4 grid md:grid-cols-2 xl:grid-cols-2 gap-6" data-te-input-wrapper-init>
+                                        <div class="relative mb-4 grid md:grid-cols-2 xl:grid-cols-2 gap-6"
+                                            data-te-input-wrapper-init>
                                             <div>
                                                 <label for="inputNom" class="text-neutral-200">Nom</label>
-                                                <input name="nom" id="inputNom" autocomplete="current-nom" type="text" class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
+                                                <input name="nom" id="inputNom" autocomplete="current-nom" type="text"
+                                                    class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
                                             </div>
                                             <div>
                                                 <label for="inputPrenom" class="text-neutral-200">Prenom</label>
-                                                <input name="prenom" id="inputPrenom" autocomplete="current-prenom" type="text" class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
+                                                <input name="prenom" id="inputPrenom" autocomplete="current-prenom"
+                                                    type="text"
+                                                    class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
                                             </div>
                                             <div>
                                                 <label for="inputPseudo" class="text-neutral-200">Pseudo</label>
-                                                <input name="pseudo" id="inputPseudo" autocomplete="current-pseudo" type="text" class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
+                                                <input name="pseudo" id="inputPseudo" autocomplete="current-pseudo"
+                                                    type="text"
+                                                    class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
                                             </div>
                                             <div>
                                                 <label for="inputTelephone" class="text-neutral-200">Telephone</label>
-                                                <input name="telephone" id="inputTelephone" autocomplete="current-telephone" type="phone" class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
+                                                <input name="telephone" id="inputTelephone"
+                                                    autocomplete="current-telephone" type="phone"
+                                                    class="block min-h-auto w-full rounded border-0 px-3 py-2 bg-neutral-900" />
                                             </div>
                                         </div>
+                                        <!-- Error Message -->
+                                        <div id="error-message" class="text-red-500"></div>
                                         <!-- Submit button -->
                                         <button
                                             class="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
@@ -73,7 +92,8 @@
                                             style="background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);">Sign
                                             up</button>
                                         <div class="flex items-center justify-between pb-6">
-                                            <a class="mb-0 mr-2 text-purple-600" href="/login">Already have an account?</a>
+                                            <a class="mb-0 mr-2 text-purple-600" href="/login">Already have an
+                                                account?</a>
                                         </div>
                                     </form>
                                 </div>
@@ -98,6 +118,18 @@
         </div>
     </section>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Obtenir le paramètre "error" de l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        // Sélectionner l'élément du message d'erreur
+        let errorMessage = document.getElementById('error-message');
+
+        // Si "error" est présent et égal à "true", afficher le message d'erreur
+        if (error === 'true') {
+            errorMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect";
+        }
+    </script>
 </body>
 
 </html>

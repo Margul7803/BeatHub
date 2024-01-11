@@ -42,6 +42,12 @@ for (const key in routeMappings) {
 app.use('/login', cacheControl, require('./post/connexion/login.js'));
 app.use('/signup', cacheControl, require('./post/connexion/signup.js'));
 
+
+// Route pour la déconnexion et la création de bouton
+app.get('/', (req, res) => {
+    res.redirect('/session');
+});
+
 // Configuration du port et démarrage du serveur
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Express server listening on port ${port}`));
