@@ -132,6 +132,7 @@ class AppFixtures extends Fixture
             $musique->setParole("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
             $musique->setGenre($genre);
             $musique->setAlbum($album);
+            $musique->addArtiste($artiste);
             $manager->persist($musique);
         }
 
