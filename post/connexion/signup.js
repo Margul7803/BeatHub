@@ -41,14 +41,14 @@ router.post('/signup_gestion', [
             tel,
             roles: ["user"],
             isVerified: true,
-            Artiste,
-            artiste
         };
         const apiResponse = await fetch('http://localhost:8000/api/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/ld+json' },
             body: JSON.stringify(userData),
         });
+
+        console.log(apiResponse)
         if (apiResponse.ok) {
             return res.redirect('/index');
         } else {

@@ -20,13 +20,13 @@ async function callApi(endpoint, body = null) {
 function createComponent(data, type) {
     return data["hydra:member"].map(element => {
         const slide = document.createElement('div');
-        slide.classList.add('swiper-slide', 'text-center', 'p-20', 'rounded-lg', 'bg-gray-800', 'inline-block', 'whitespace-normal', 'w-[calc(100%/6-20px)]', 'mr-20');
+        slide.classList.add('swiper-slide', 'text-center', 'px-2', 'py-5', 'rounded-lg', 'bg-gray-800', 'inline-block', 'whitespace-normal', 'w-[calc(100%/6-20px)]', 'mr-20');
         
         let innerHTML = `
             <div class="relative pt-full">
                 <img src="https://picsum.photos/129.webp?random=${element.id}" alt="${element.nom || element.titre}" class="max-w-full h-auto mx-auto" />
             </div>
-            <div class="music-title text-2xl font-bold mt-10 text-white">${element.nom || element.titre}</div>`;
+            <div class="music-title text-2xl font-bold text-white">${element.nom || element.titre}</div>`;
         
         if (type === "musiques" || type === "alba") {
             innerHTML += `<div class="music-artist text-base text-gray-600">By ${element.artiste}</div>`;
